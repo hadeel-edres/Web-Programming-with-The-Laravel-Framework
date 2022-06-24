@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Abstract and Interface</title>
+    <meta charset="utf-8">
+    <style>
+        #text{
+            background-color: darksalmon;
+        }
+        #text_1{
+            background-color: darksalmon;
+        }
+        #text_2{
+            background-color: darksalmon;
+        }
+        #code_1{
+            background-color: antiquewhite;
+            color: green;
+            font-family:consolas;
+        }
+        #code_2{
+            background-color: antiquewhite;
+            color: green;
+            font-family:consolas;
+        }
+        #fett{
+            color: black;
+        }
+    </style>
+</head>
+ 
+ <body>
+     <div id="text"><p><b>1.When you need to use abstract class then interface?</b></p> 
+        - We use abstract classes and methods when we need to pass the child classes to specific methods<br>
+         that they inherit from the parent class, but we can't commit to the code that should be written in the methods.<br>
+        - With interfaces it is possible to specify which methods a class should implement.<br>
+          Interfaces make it easy to use a variety of different classes in the same way.
+        <p><b>2. What is the difference of abstract class and interface?</b></p>
+        <p>1. abstract classes have properties whereas interfaces cannot have them.<br>
+           2.All interface methods must be public while abstract class methods are public or protected.<br>
+           3.All methods in an interface are abstract, so they cannot be implemented in code and the abstract keyword is not necessary<br>
+            an abstraction cannot contain actual code, but it can simply define a method "signature". <br>
+           4. Classes can implement an interface and at the same time inherit from another class.<br> </p>
+           <br>
+        </div>
+        
+        <div id="text_1">
+        <p><b>3. Write an example of abstract class and how to implement it!</b></p></div>
+
+        <div id="code_1">
+            <p id="code_text">
+                <?php <br>
+            // Parent class <br>
+            abstract class Flowers{<br>
+               public $name_despo;;<br>
+               public function __construct($name_despo;){<br>
+              $this->name = $name_despo;;<br>
+         }<br>
+               abstract public function intro() : string; <br>
+        }<br>
+        <br>
+          // Child classes<br>
+          class Tulip extends Flowers{ <br>
+          public function intro() : string{<br>
+          return "$this->name have white color!"; <br>
+     }<br>
+   }<br>
+   <br>
+     class Jasmin extends Flowers {<br>
+     public function intro() : string {<br>
+    return "$this->name is multicoloured!"; <br>
+   }<br>
+ }<br>
+     <br>
+     // Create objects from the child classes<br>
+       $tulip = new tulip("Tulip");<br>
+       echo $tulip->intro();<br>
+       echo "br";<br>
+       <br>
+      $jasmin = new jasmin("Jasmin");<br>
+      echo $jasmin->intro();<br>
+      echo "br";<br>
+?><br>
+<br>
+ 
+    <b id="fett">Output:</b><br>
+    Tulip is multicoloured!<br>
+    Jasmin have white color!<br>
+
+            </p>
+        </div>
+    
+        <div id="text_2">
+        <p><b>4.  Write an example of interface and how to to implement it!</b></p></div>
+        <div id="code_2">
+            <?php<br>
+             interface Flowers{<br>
+             public function hasColor();<br>
+                        }<br>
+                        <br>
+             class Jasmin implements Flowers{<br>
+             public function hasColor(){<br>
+              echo "white";<br>
+                  }<br>
+                    }<br>
+
+                     $flowers = new Flowers();<br>
+                     $flowers->hasColor();<br>
+                         ?><br>
+                         <br>
+                         <b id="fett">Output:</b><br>
+                            white<br>
+
+        </div>
+</body>
+</html>
